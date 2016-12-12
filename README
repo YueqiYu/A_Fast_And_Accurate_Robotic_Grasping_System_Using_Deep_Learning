@@ -1,1 +1,50 @@
-My project
+A Fast and accurate Robotic Grasp Method Using Deep Learning:
+
+The code for the whole system can be divided into:
+1. Data set annotation code(used to create your own data set)
+2. Driver for Robotic Arm.
+3. Gazebo Model
+4. Code for object detection and real world robotic arm grasping
+
+Citation: The main code are modified based on Faster R-CNN developed by Shaoqing Ren et al.:
+@article{ren15fasterrcnn,
+    Author = {Shaoqing Ren, Kaiming He, Ross Girshick, Jian Sun},
+    Title = {{Faster R-CNN}: Towards Real-Time Object Detection with Region Proposal Networks},
+    Journal = {arXiv preprint arXiv:1506.01497},
+    Year = {2015}
+}
+
+
+Requirements: software
+
+1. Caffe build for Faster R-CNN (included in this repository, see external/caffe)
+	If you are using Windows, you may download a compiled mex file by running 	  fetch_data/fetch_caffe_mex_windows_vs2013_cuda65.m
+	If you are using Linux or you want to compile for Windows, please follow the 		instructions on our Caffe branch.
+2. MATLAB 2015b or higher version
+3. ROS indigo version
+4. Gazebo 2.2.5 or higher
+5. Openni_for_ROS package
+
+Requirements: Hardware
+GPU: Titan, Titan Black, Titan X, K20, K40, K80.
+
+1. Region Proposal Network (RPN)
+	2GB GPU memory for ZF net
+	5GB GPU memory for VGG-16 net
+2. Object Detection Network (Fast R-CNN)
+	3GB GPU memory for ZF net
+	8GB GPU memory for VGG-16 net
+
+Preparation for code Testing:
+1. Run fetch_data/fetch_caffe_mex_windows_vs2013_cuda65.m to download a compiled Caffe mex (for Windows only).
+2. Run faster_rcnn_build.m
+3. Run startup.m
+4. Download "Pre-Train_model" and "VOCdevkit2007" folder from kronos I uploaded.
+5. Put "Pre-Train-model" under "Grasping/experiments/models", and put "VOCdevkit2007" under "Grasping/experiments/datasets".
+6. Create ROS packages for robotic arm code folder "Arm Init" and use cmake to compile.
+7. Open Terminal and switch to the arm package folder type:source devel/setup.bash
+8. make sure the arm is plugged into the computer and powered on, type "roslaunch controller controller_manager.launch" in terminal
+9. Open another Terminal and repeat step 5, then type:"roslaunch controller start_tilt_controller.launch"
+10. Plugin Kinect and open a new Terminal and type:" roslaunch openni_launch openni.launch
+11. Run script_faster_rcnn_VOC2007_ZF.m using matlab under directory:"Grasping/experiments/" to train the model. Or download "faster_rcnn_final" and put it under Grasping/experiments/output".
+12. Run GraspAll.m.
