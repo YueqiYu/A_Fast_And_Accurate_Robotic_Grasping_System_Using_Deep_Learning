@@ -1,0 +1,86 @@
+joint1_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: tilt_joint1
+    joint_speed: 0.6
+    motor:
+        id: 1
+        init: 512
+        min: 0
+        max: 1023
+joint2_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: tilt_joint2
+    joint_speed: 0.6
+    motor:
+        id: 2
+        init: 512
+        min: 0
+        max: 1023
+joint3_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: tilt_joint3
+    joint_speed: 0.6
+    motor:
+        id: 3
+        init: 512
+        min: 0
+        max: 1023
+
+joint4_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: tilt_joint4
+    joint_speed: 0.6
+    motor:
+        id: 4
+        init: 512
+        min: 0
+        max: 1023
+joint5_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: tilt_joint5
+    joint_speed: 0.6
+    motor:
+        id: 5
+        init: 512
+        min: 0
+        max: 1023
+joint6_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: tilt_joint6
+    joint_speed: 1.17
+    motor:
+        id: 6
+        init: 512
+        min: 0
+        max: 1023
+joint7_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: tilt_joint7
+    joint_speed: 0.3
+    motor:
+        id: 7
+        init: 512
+        min: 0
+        max: 1023
+
